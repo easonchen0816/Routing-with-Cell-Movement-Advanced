@@ -24,25 +24,35 @@ MCell::~MCell()
 
 string MCell::getName()
 {
-    return Name;
+    return MCName;
 }
 
-vector<Pin> MCell::getPList()
+vector<Pin*> MCell::getPList()
 {
-    return Plist;
+    return PList;
 }
 
-vector<Blkg> MCell::getBList()
+vector<Blkg*> MCell::getBList()
 {
-    return Blist;
+    return BList;
 }
 
 void MCell::addPin(string name, Layer l)
 {
-    PList.push_back(Pin(name, l, MCName));
+    PList.push_back(new Pin(name, l, MCName));
 }
 
-void MCell::addBlkg(string name, Layer l, int d)
+void MCell::addBlkg(string name, Layer l, double d)
 {
-    BList.push_back(Blkg(name, l, d, MCName));
+    BList.push_back(new Blkg(name, l, d, MCName));
+}
+
+MCell& MCell::operator = (const MCell& m)
+{
+    MCName = m.MCName;
+    NumBlkg = m.NumBlkg;
+    NumPin = m.NumPin;
+    PList = m.PList;
+    BList = m.BList;
+    return *this;
 }

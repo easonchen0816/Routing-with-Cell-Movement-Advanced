@@ -1,3 +1,5 @@
+#ifndef MCELL_H
+#define MCELL_H
 #include <string>
 #include <vector>
 #include "Pin.h"
@@ -11,8 +13,8 @@ private:
     string MCName;
     int NumPin;
     int NumBlkg;
-    vector<Pin> Plist; // linked list
-    vector<Blkg> Blist; // linked list
+    vector<Pin*> PList;
+    vector<Blkg*> BList;
     
 public:
     MCell();
@@ -20,8 +22,10 @@ public:
     ~MCell();
     string getName();
     void addPin(string, Layer);
-    void addBlkg(string, Layer, int);
-    vector<Pin> getPList();
-    vector<Blkg> getBList();
+    void addBlkg(string, Layer, double);
+    vector<Pin*> getPList();
+    vector<Blkg*> getBList();
+    MCell& operator = (const MCell&);
 };
 
+#endif // MCELL_H

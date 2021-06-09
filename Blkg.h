@@ -1,3 +1,5 @@
+#ifndef BLKG_H
+#define BLKG_H
 #include <string>
 #include "Layer.h"
 
@@ -9,11 +11,11 @@ private:
     string Name;
     string MC;
     Layer Lyr;
-    int Demand;
+    double Demand;
 public:
     Blkg();
-    Blkg(string, Layer, int, string);
+    Blkg(string, Layer, double, string);
     ~Blkg();
 };
 
-
+#endif // BLKG_H

@@ -1,3 +1,5 @@
+#ifndef PIN_H
+#define PIN_H
 #include <string>
 #include "Layer.h"
 
@@ -7,6 +9,7 @@ class Pin
 {
 private:
     string Name;
+    string Net;
     string MC;
     Layer Lyr;
     int Row;
@@ -16,10 +19,12 @@ public:
     Pin();
     Pin(string, Layer, string);
     ~Pin();
+    string getNetname();
     void setMC(string);
-    void Connect();
+    void Connect(string);
     void Disconnect();
     string getName();
+    
 };
 
-
+#endif // PIN_H

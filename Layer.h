@@ -1,3 +1,5 @@
+#ifndef LAYER_H
+#define LAYER_H
 #include <string>
 
 using namespace std;
@@ -10,11 +12,11 @@ private:
     int Idx;
     char Dir;
     int DefaultSupply;
-    int Powerfactor;
+    double Powerfactor;
 
 public:
     Layer();
-    Layer(string, int, char, int, int);
+    Layer(string, int, char, int, double);
     virtual ~Layer();
     int getsupply();
     int getIdx();
@@ -27,3 +29,4 @@ public:
     bool LowerError (int); // For checking min-layer-constraint
 };
 
+#endif // LAYER_H
